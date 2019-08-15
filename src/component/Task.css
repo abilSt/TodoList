@@ -1,0 +1,32 @@
+.s {
+  text-decoration: line-through;
+}
+li {
+  list-style-type: none; 
+}
+.letsget {
+  color: rgb(124, 122, 122);
+  text-align: center;
+  font-size: 35px;
+  margin-top:-10px;
+}
+.line{
+  border: 1px solid rgba(125, 146, 187,0.4);
+  width: 70px;
+ margin-left: 540px;
+}
+.btndone{
+  border: 2px solid rgb(104, 146, 231); 
+}
+.btndonesize {
+  padding: 7px;
+  margin:4px 0px 4px 0px;
+  border-radius: 1px;
+  /* background-color: rgb(123, 153, 214); */
+  border: 2px solid rgb(104, 146, 231);
+  margin-right: 4px;
+}
+.btndonesize:hover{
+background-color: rgb(104, 146, 231);
+color:white;
+}/* Убираем маркеры */

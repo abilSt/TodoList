@@ -1,26 +1,50 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import AppHeader from './component/App-header';
+import RouterMain from './component/Router';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    data: [{
+      text: "Hello",
+      isDone:false
+  }],
+  inputData:"",
+}
+  inputDataHandler = (text) => {
+    this.setState({...this.state, inputData: text})
+  }
+  createNewTask = () => {
+    const newTask = this.state.data
+    newTask.push({text: this.state.inputData, isDone: false})
+    this.setState({...this.state, data: newTask})
+  }
+  isDoneStatus = (index) => {  
+    const newArr = this.state;
+    newArr.data[index].isDone = !newArr.data[index].isDone;
+    this.setState(newArr)
+    console.log(newArr.data[index].isDone)
+  }
+  deleteTodo = (index) => {
+    const deleteItem = this.state.data;
+    deleteItem.splice(index, 1);
+    this.setState(deleteItem);
+    console.log(deleteItem)
+  }
+  render() {
+
+    return (
+      <div className="App">
+        <AppHeader 
+        inputDataHandler={this.inputDataHandler}
+        createNewTask={this.createNewTask}
+        />
+          <RouterMain data={this.state.data}/>
+      </div>
+    );
+  }
 }
 
 export default App;
+
+
+
